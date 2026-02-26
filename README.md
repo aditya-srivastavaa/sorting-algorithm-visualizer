@@ -1,54 +1,100 @@
-# Algorithm Visualizer
+Sorting Algorithm Visualizer
+Overview
 
-## Introduction
-Welcome to Algorithm Visualizer, an interactive online platform designed to bring algorithms to life through visualization. Whether you're a student, teacher, or professional, our platform provides an engaging way to explore and understand various algorithms.
+Sorting Algorithm Visualizer is an interactive web application built to demonstrate how classic sorting algorithms operate step-by-step.
 
-[![GitHub contributors](https://img.shields.io/github/contributors/algorithm-visualizer/algorithm-visualizer.svg?style=flat-square)](https://github.com/algorithm-visualizer/algorithm-visualizer/graphs/contributors)
-[![GitHub license](https://img.shields.io/github/license/algorithm-visualizer/algorithm-visualizer.svg?style=flat-square)](https://github.com/algorithm-visualizer/algorithm-visualizer/blob/master/LICENSE)
+The goal of this project is to strengthen algorithmic intuition by visually representing comparisons, swaps, and state transitions in real time using a modular rendering architecture.
 
-## Languages and Frameworks Used
-[![Languages](https://skillicons.dev/icons?i=html,css,js,react,nodejs,redux)](https://skillicons.dev)
+This project focuses specifically on sorting algorithm execution and visualization through a structured trace-driven animation system.
 
+Problem It Solves
 
-## Key Features
-<ul> 
-<li>
+Many learners understand sorting algorithms conceptually but struggle to visualize:
 
-### Visualize algorithms from code:
-Algorithm Visualizer allows you to witness algorithms in action by visualizing code written in various programming languages. This visual approach facilitates a better understanding of algorithmic behavior..</li>
-<li>
+How elements move over time
 
-### Learn about Algorithms:
-Explore our collection of tutorials, articles, and videos that serve as valuable resources for learning about algorithms.
-</li>
-</ul>
+How recursive algorithms transform arrays
 
-## algorithms
-In this repository, you'll find visualizations of algorithms showcased in the website's side menu. Contributions here directly impact the educational content available on the platform.   https://github.com/algorithm-visualizer/algorithms</li>
-</ul>
+Why time complexities differ
 
+What happens internally during swaps and partitions
 
-## tracers
-Explore the various visualization libraries in different programming languages. These libraries extract visualization commands from code.
-https://github.com/search?q=topic%3Avisualization-library+org%3Aalgorithm-visualizer&type=Repositories</li>
-</ul>
+This project bridges that gap by providing a deterministic, replayable animation pipeline.
 
-## Live Demo
-Learning an algorithm gets much easier with visualizing it. Don't get what we mean? Check it out:
+Implemented Algorithms
 
-[**algorithm-visualizer.org**![Screenshot](https://raw.githubusercontent.com/algorithm-visualizer/algorithm-visualizer/master/branding/screenshot.png)](https://algorithm-visualizer.org/)
+Bubble Sort — O(n²)
 
-## Contributing
+Selection Sort — O(n²)
 
-Our project consists of multiple repositories, each playing a crucial role in the Algorithm Visualizer ecosystem. If you're interested in contributing, check out the guidelines for the specific repository:
+Insertion Sort — O(n²)
 
+Merge Sort — O(n log n)
 
-- [**`algorithm-visualizer`**](https://github.com/algorithm-visualizer/algorithm-visualizer) is a web app written in React. It contains UI components and interprets commands into visualizations. Check out [the contributing guidelines](CONTRIBUTING.md).
+Quick Sort — O(n log n average)
 
-- [**`server`**](https://github.com/algorithm-visualizer/server) serves the web app and provides APIs that it needs on the fly. (e.g., GitHub sign in, compiling/running code, etc.)
+Heap Sort — O(n log n)
 
-- [**`algorithms`**](https://github.com/algorithm-visualizer/algorithms) contains visualizations of algorithms shown on the side menu of the website.
+Each algorithm is executed independently from the visualization layer.
 
-- [**`tracers.*`**](https://github.com/search?q=topic%3Avisualization-library+org%3Aalgorithm-visualizer&type=Repositories) are visualization libraries written in each supported language. They extract visualizing commands from code.
+Architecture
 
-Ready to contribute? Explore the repositories and become part of the Algorithm Visualizer community!
+The application follows a modular design pattern separating execution logic from rendering logic.
+
+1. Algorithm Layer
+
+Contains pure sorting implementations
+
+Emits structured trace events instead of directly updating UI
+
+Maintains clean separation of concerns
+
+2. Tracer Layer
+
+Captures algorithm execution steps
+
+Stores state snapshots
+
+Enables deterministic replay
+
+3. Renderer Layer
+
+Consumes tracer state
+
+Responsible for visual output
+
+Updates UI based on controlled animation timing
+
+4. Player / State Management
+
+Controls play, pause, step-forward functionality
+
+Adjusts animation speed
+
+Manages visualization progress
+
+This separation ensures scalability and easier extension of new algorithms.
+
+Key Engineering Decisions
+
+Decoupled algorithm execution from UI rendering
+
+Centralized animation control for deterministic playback
+
+Modular component-based structure
+
+Reusable tracer abstraction for different data structures
+
+State-driven rendering for consistency
+
+Tech Stack
+
+React
+
+JavaScript (ES6+)
+
+SCSS Modules
+
+Modular component architecture
+
+Event-driven animation pipeline
