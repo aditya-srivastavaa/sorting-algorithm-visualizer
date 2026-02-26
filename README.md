@@ -1,93 +1,74 @@
-Sorting Algorithm Visualizer
-Overview
+🚀 Sorting Algorithm Visualizer
 
-Sorting Algorithm Visualizer is an interactive web application built to demonstrate how classic sorting algorithms operate step-by-step.
+An interactive React-based web application that demonstrates how classic sorting algorithms operate step-by-step through a deterministic, trace-driven animation pipeline.
 
-The goal of this project is to strengthen algorithmic intuition by visually representing comparisons, swaps, and state transitions in real time using a modular rendering architecture.
+🎯 Why This Project?
 
-This project focuses specifically on sorting algorithm execution and visualization through a structured trace-driven animation system.
+Understanding sorting algorithms conceptually is easy.
+Understanding how elements actually move during execution is not.
 
-Problem It Solves
+This project visually represents:
 
-Many learners understand sorting algorithms conceptually but struggle to visualize:
+🔁 Comparisons
 
-How elements move over time
+🔄 Swaps
 
-How recursive algorithms transform arrays
+📊 State transitions
 
-Why time complexities differ
+⚡ Execution flow
 
-What happens internally during swaps and partitions
+It bridges the gap between theory and execution.
 
-This project bridges that gap by providing a deterministic, replayable animation pipeline.
+🧠 Implemented Algorithms
+Algorithm	Best Case	Average Case	Worst Case
+Bubble Sort	O(n)	O(n²)	O(n²)
+Selection Sort	O(n²)	O(n²)	O(n²)
+Insertion Sort	O(n)	O(n²)	O(n²)
+Merge Sort	O(n log n)	O(n log n)	O(n log n)
+Quick Sort	O(n log n)	O(n log n)	O(n²)
+Heap Sort	O(n log n)	O(n log n)	O(n log n)
 
-Implemented Algorithms
+Each algorithm executes independently from the visualization engine.
 
-Bubble Sort — O(n²)
+🏗 Architecture
 
-Selection Sort — O(n²)
+The application is built around strict separation of concerns.
 
-Insertion Sort — O(n²)
+1️⃣ Algorithm Layer
 
-Merge Sort — O(n log n)
+Pure sorting logic
 
-Quick Sort — O(n log n average)
+Emits structured trace events
 
-Heap Sort — O(n log n)
+No direct UI manipulation
 
-Each algorithm is executed independently from the visualization layer.
+2️⃣ Tracer Layer
 
-Architecture
+Records execution steps
 
-The application follows a modular design pattern separating execution logic from rendering logic.
-
-1. Algorithm Layer
-
-Contains pure sorting implementations
-
-Emits structured trace events instead of directly updating UI
-
-Maintains clean separation of concerns
-
-2. Tracer Layer
-
-Captures algorithm execution steps
-
-Stores state snapshots
+Stores intermediate states
 
 Enables deterministic replay
 
-3. Renderer Layer
+3️⃣ Renderer Layer
 
 Consumes tracer state
 
-Responsible for visual output
+Updates visual components
 
-Updates UI based on controlled animation timing
+React-driven UI rendering
 
-4. Player / State Management
+4️⃣ Player / State Control
 
-Controls play, pause, step-forward functionality
+Controls play, pause, step-forward
 
-Adjusts animation speed
+Manages animation timing
 
-Manages visualization progress
+Handles speed adjustment
 
-This separation ensures scalability and easier extension of new algorithms.
+This modular architecture ensures extensibility and maintainability.
 
-Key Engineering Decisions
-
-Decoupled algorithm execution from UI rendering
-
-Centralized animation control for deterministic playback
-
-Modular component-based structure
-
-Reusable tracer abstraction for different data structures
-
-State-driven rendering for consistency
-
-Tech Stack
+⚙️ Tech Stack
 
 React
 
@@ -95,6 +76,18 @@ JavaScript (ES6+)
 
 SCSS Modules
 
-Modular component architecture
+Modular component design
 
-Event-driven animation pipeline
+State-driven animation system
+
+🔬 Engineering Focus
+
+Decoupling execution logic from visualization
+
+Deterministic animation playback
+
+Modular component structure
+
+Extensible algorithm integration
+
+Clean state-driven rendering
